@@ -1,2 +1,2 @@
 # netty-in-action
-source code for the book 《Netty in Action》
+source code use netty-all 4.0.36.Final for the book 《Netty in Action》 
