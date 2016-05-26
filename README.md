@@ -1,2 +1,2 @@
 # netty-in-action
-source code for 《Netty in Action》 book
+source code for the book 《Netty in Action》
