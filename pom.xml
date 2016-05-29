@@ -16,6 +16,8 @@
             <artifactId>netty-all</artifactId>
             <version>4.0.36.Final</version>
         </dependency>
+        
+        <!-- SLF4J: Class path contains multiple SLF4J bindings. -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
