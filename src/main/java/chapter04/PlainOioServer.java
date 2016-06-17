@@ -19,8 +19,9 @@ public class PlainOioServer {
     private static final AtomicInteger count = new AtomicInteger();
     
     public void start(int port){
+        ServerSocket serverSocket = null;
         try{
-            final ServerSocket serverSocket = new ServerSocket(port);
+            serverSocket = new ServerSocket(port);
             logger.info(PlainOioServer.class.getName()+" started and listen on "+serverSocket);
             while(true){
                 final Socket clientSocket = serverSocket.accept();
@@ -29,6 +30,14 @@ public class PlainOioServer {
             }
         }catch(IOException e) {
             e.printStackTrace();
+        }finally{
+            if(serverSocket != null){
+                try {
+                    serverSocket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
     
