@@ -6,12 +6,14 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryPoolMXBean;
 import java.lang.management.MemoryUsage;
-import java.lang.management.OperatingSystemMXBean;
 import java.lang.management.RuntimeMXBean;
 import java.lang.management.ThreadMXBean;
 import java.util.Arrays;
 import java.util.List;
 
+import com.sun.management.OperatingSystemMXBean;
+
+@SuppressWarnings("restriction")
 public class TestJvmInfo {
 
     public static void main(String[] args) {
@@ -41,9 +43,9 @@ public class TestJvmInfo {
       
         System.out.println("=======================OperatingSystemMXBean============================ ");  
         OperatingSystemMXBean osm = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();  
-//        System.out.println(osm.getFreeSwapSpaceSize()/1024);  
-//        System.out.println(osm.getFreePhysicalMemorySize()/1024);  
-//        System.out.println(osm.getTotalPhysicalMemorySize()/1024);  
+        System.out.println("osm.getFreeSwapSpaceSize() "+osm.getFreeSwapSpaceSize()/1024);  
+        System.out.println("osm.getFreePhysicalMemorySize() "+osm.getFreePhysicalMemorySize()/1024);  
+        System.out.println("osm.getTotalPhysicalMemorySize() "+osm.getTotalPhysicalMemorySize()/1024);  
           
         //获取操作系统相关信息  
         System.out.println("osm.getArch() "+osm.getArch());  
