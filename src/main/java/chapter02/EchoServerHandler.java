@@ -18,13 +18,13 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("Server "+ctx.channel().hashCode()+" connected!");
+        logger.info(ctx.channel()+" connected!");
     }
     
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf)msg;
-        logger.info("Server "+ctx.channel().hashCode()+" received: "+in.toString(CharsetUtil.UTF_8));
+        logger.info(ctx.channel()+" received: "+in.toString(CharsetUtil.UTF_8));
         ctx.write(in);
     }
     
@@ -35,7 +35,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("Server "+ctx.channel().hashCode()+" disconnected!");
+        logger.info(ctx.channel()+" disconnected!");
     }
     
     @Override

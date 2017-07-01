@@ -17,18 +17,18 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("Client "+ctx.channel().hashCode()+" connected!");
+        logger.info(ctx.channel()+" connected!");
         ctx.writeAndFlush(Unpooled.copiedBuffer("Netty Rocks!", CharsetUtil.UTF_8));
     }
     
     @Override
     public void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-        logger.info("Client "+ctx.channel().hashCode()+" received: "+msg.toString(CharsetUtil.UTF_8));
+        logger.info(ctx.channel()+" received: "+msg.toString(CharsetUtil.UTF_8));
     }
     
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("Client "+ctx.channel().hashCode()+" disconnected!");
+        logger.info(ctx.channel()+" disconnected!");
     }
     
     @Override
